@@ -1,0 +1,4 @@
+[webServers]
+webServer1-AMZL2 ansible_host=34.240.144.10 ansible_user=ec2-user 
+webServer3-DEBI12 ansible_host=54.216.51.206 ansible_user=admin 
+webServer2-UBUNT ansible_host=3.252.197.178 ansible_user=ubuntu 
