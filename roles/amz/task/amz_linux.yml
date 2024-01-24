@@ -10,3 +10,4 @@
       shell: /home/ec2-user/amz_linux.sh
       register: output
 
+
