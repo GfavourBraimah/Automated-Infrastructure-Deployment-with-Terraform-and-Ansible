@@ -1,12 +1,22 @@
 #!/bin/bash
 
+# Update packages
 sudo yum update
-sudo yum install apache2 -y
-sudo systemctl start apache2
-sudo systemctl enable apache2
+
+# Install Apache (httpd)
+sudo yum install httpd -y
+
+# Start and enable Apache service
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# Remove the default index.html file
 sudo rm /var/www/html/index.html
+
+# Set the timezone to Africa/Lagos
 sudo timedatectl set-timezone Africa/Lagos
 
+# Create a new index.html file with your HTML content
 cat <<EOL > index.html
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +26,7 @@ cat <<EOL > index.html
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Color generator</title>
     <style>
+      /* Your CSS styles here */
       body {
         margin: 0;
         font-family: cursive;
@@ -46,13 +57,11 @@ cat <<EOL > index.html
   <body>
     <h1>Random Color Generator</h1>
     <div class="container">
-      <div class="color-container">#7652a6</div>
-      <div class="color-container">#7652a6</div>
-      <div class="color-container">#7652a6</div>
-      <div class="color-container">#7652a6</div>
+      <!-- Your color containers here -->
     </div>
 
     <script>
+      // Your JavaScript code here
       const containerEl = document.querySelector(".container");
 
       for (let index = 0; index < 30; index++) {
@@ -78,8 +87,8 @@ cat <<EOL > index.html
         const colorCodeLength = 6;
         let colorCode = "";
         for (let index = 0; index < colorCodeLength; index++) {
-          const randomNum = $((RANDOM % ${#chars}));
-          colorCode+="${chars:randomNum:1}"
+          const randomNum = Math.floor(Math.random() * chars.length);
+          colorCode+=chars.charAt(randomNum);
         }
         return colorCode;
       }
@@ -88,7 +97,11 @@ cat <<EOL > index.html
 </html>
 EOL
 
+# Append the hostname to the HTML file
 echo "<h2>$HOSTNAME</h2>" >> index.html
 
-sudo mv index.html /var/www/html
+# Move the index.html file to /var/www/html/ or create the directory if it doesn't exist
+sudo mv index.html /var/www/html/ || sudo mkdir -p /var/www/html/ && sudo mv index.html /var/www/html/
+
+# Set ownership of the index.html file
 sudo chown root:root /var/www/html/index.html
