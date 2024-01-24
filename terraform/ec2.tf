@@ -21,9 +21,9 @@ resource "aws_instance" "webServer" {
     command = "echo ${self.tags.Name} ansible_host=${self.public_ip} ansible_user=${local.ansible_user[count.index]} >> ../host-inventory"
   }
 
-   provisioner "local-exec" {
-     command = "ansible-playbook -i ../host-inventory ../main.yml"
-   }
+   # provisioner "local-exec" {
+  #   command = "ansible-playbook -i ../host-inventory ../main.yml"
+ #  }
 }
 
 output "webServerIPs" {
