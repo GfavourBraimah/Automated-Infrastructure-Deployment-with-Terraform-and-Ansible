@@ -109,5 +109,6 @@ run the playbook now
       ansible-playbook -i host-inventory main.yml
 ```
  
-  ![Alt text](Random Color Generator.png)
+  ![Random Color Generator](Random%20Color%20Generator.png)
+
 
