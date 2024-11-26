@@ -4,14 +4,14 @@
 2. Ansible [core 2.10.8]
 3. AWS CLI [aws configure]
 
-4. ## MINI PROJECT
+4. ## PROJECT DESCRIPTION
 
-- Using Terraform, create 3 EC2 instances and put them behind an Elastic Load Balancer
-- Make sure the after applying your plan, Terraform exports the public IP addresses of the 3 instances to a file called host-inventory
-- Get a .com.ng or any other domain name for yourself (be creative, this will be a domain you can keep using) and set it up with AWS Route53 within your terraform plan, then add an A record for subdomain terraform-test that points to your ELB IP address.
-- Create an Ansible script that uses the host-inventory file Terraform created to install Apache, set timezone to Africa/Lagos and displays a simple HTML page that displays content to clearly identify on all 3 EC2 instances.
-- Your project is complete when one visits terraform-test.yourdomain.com and it shows the content from your instances, while rotating between the servers as your refresh to display their unique content.
-- Submit both the Ansible and Terraform files created
+- Using Terraform, I created 3 EC2 instances and put them behind an Elastic Load Balancer
+- I also made sure that after applying the plan, Terraform exports the public IP addresses of the 3 instances to a file called host-inventory
+-  I got a .com.ng or any other domain name for myself  and I set it up with AWS Route53 within my terraform plan, then  I add an A record for subdomain terraform-test that points to my ELB IP address.
+- I Created an Ansible script that uses the host-inventory file Terraform created to install Apache, set timezone to Africa/Lagos and displays a simple HTML page that displays content to clearly identify on all 3 EC2 instances.
+- This project is complete when one visits terraform-test.yourdomain.com and it shows the content from my instances, while rotating between the servers as your refresh to display their unique content.
+
 
 - # Project: Terraform and Ansible Deployment
 
